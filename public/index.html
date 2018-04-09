@@ -214,8 +214,9 @@ limitations under the License.
         window.verifyingCode = false;
         window.confirmationResult = null;
         updateVerificationCodeFormUI();
+        window.location.href = "./main.html";
       }).catch(function (error) {
-        // User couldn't sign in (bad verification code?)
+        // User couldn't sign in (wrong verification code)
         console.error('Error while checking the verification code', error);
         window.alert('Error while checking the verification code:\n\n'
             + error.code + '\n\n' + error.message);
@@ -349,6 +350,7 @@ limitations under the License.
     if (user) {
       document.getElementById('sign-in-status').textContent = 'Signed in';
       document.getElementById('account-details').textContent = JSON.stringify(user, null, '  ');
+      // window.location.href = "./employee.html";
     } else {
       document.getElementById('sign-in-status').textContent = 'Signed out';
       document.getElementById('account-details').textContent = 'null';
